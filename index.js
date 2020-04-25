@@ -40,6 +40,7 @@ const functionRegist = (username, email, reff) => new Promise((resolve, reject) 
 (async () => {
     const reff = readline.question("[?] Reff code: ")
     const jumlah = readline.question("[?] Jumlah reff: ")
+    console.log("")
     for (var i = 0; i < jumlah; i++){
     try {
         const nama = random.first()
@@ -47,10 +48,11 @@ const functionRegist = (username, email, reff) => new Promise((resolve, reject) 
         const username = `${nama}${rand}`
         const email = `${username}@gmail.com`
         const regist = await functionRegist(username, email, reff)
-        if (regist == 3){
-            console.log("[+] Berhasil!")
+        console.log(`[!] Email: ${email}`)
+        if (regist.response == 3){
+            console.log('[+] Berhasil\n')
         } else {
-            console.log("[!] Gagal!")
+            console.log('[!] Gagal!\n')
         }
     } catch (e) {
           console.log(e)
